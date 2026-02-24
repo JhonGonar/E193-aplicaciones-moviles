@@ -31,7 +31,8 @@ Kotlin es uno de los lenguajes oficiales para el desarrollo en Android y es util
 - Trello – Implementó Kotlin para hacer su aplicación más mantenible y eficiente.
 - Netflix – Usa Kotlin en el desarrollo de su aplicación Android.
 - Uber – Adoptó Kotlin para optimizar su rendimiento y compatibilidad con Java.
-- Kotlin es recomendado por Google debido a su sintaxis clara, seguridad contra errores comunes y mejor productividad para los desarrolladores.
+
+Kotlin es recomendado por Google debido a su sintaxis clara, seguridad contra errores comunes y mejor productividad para los desarrolladores.
 
 ## Capturas de Pantalla
 
