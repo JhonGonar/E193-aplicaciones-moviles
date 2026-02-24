@@ -26,10 +26,15 @@ El sistema operativo asigna mayor prioridad a las aplicaciones que están en pri
 
 ### 4. Aplicaciones famosas que usan Kotlin
 Kotlin es uno de los lenguajes oficiales para el desarrollo en Android y es utilizado por muchas aplicaciones reconocidas a nivel mundial. Algunas de ellas son:
+
 Pinterest – Utiliza Kotlin para mejorar la seguridad y reducir errores en su código.
+
 Trello – Implementó Kotlin para hacer su aplicación más mantenible y eficiente.
+
 Netflix – Usa Kotlin en el desarrollo de su aplicación Android.
+
 Uber – Adoptó Kotlin para optimizar su rendimiento y compatibilidad con Java.
+
 Kotlin es recomendado por Google debido a su sintaxis clara, seguridad contra errores comunes y mejor productividad para los desarrolladores.
 
 ## Capturas de Pantalla
