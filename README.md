@@ -21,10 +21,16 @@ El archivo AndroidManifest.xml es el archivo de configuración fundamental de cu
 En el archivo activity_main.xml se estrutura el las etiquetas que renderizan elementos gráficos en la aplicación y que llevan consigo atributos modificadores e identificadores. Luego en el MainActivity.kt se definen variables que interactuan con las etiquetas del archivo xml, las pueden modificar y re renderizar; basicamente define el dinamismo y lógica de interacción con la aplicación.
 
 ### 3. Gestión de recursos en Android
-[Respuesta]
+Android maneja los recursos limitados del dispositivo (memoria, batería y CPU) mediante un sistema inteligente de administración basado en el ciclo de vida de las aplicaciones.
+El sistema operativo asigna mayor prioridad a las aplicaciones que están en primer plano y reduce los recursos de aquellas que están en segundo plano. Cuando el dispositivo necesita liberar memoria, Android puede cerrar procesos que no estén en uso.
 
 ### 4. Aplicaciones famosas que usan Kotlin
-[Respuesta]
+Kotlin es uno de los lenguajes oficiales para el desarrollo en Android y es utilizado por muchas aplicaciones reconocidas a nivel mundial. Algunas de ellas son:
+Pinterest – Utiliza Kotlin para mejorar la seguridad y reducir errores en su código.
+Trello – Implementó Kotlin para hacer su aplicación más mantenible y eficiente.
+Netflix – Usa Kotlin en el desarrollo de su aplicación Android.
+Uber – Adoptó Kotlin para optimizar su rendimiento y compatibilidad con Java.
+Kotlin es recomendado por Google debido a su sintaxis clara, seguridad contra errores comunes y mejor productividad para los desarrolladores.
 
 ## Capturas de Pantalla
 
