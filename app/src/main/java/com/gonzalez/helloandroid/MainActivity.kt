@@ -25,7 +25,12 @@ class MainActivity : AppCompatActivity() {
             contador++
             textView.text = "Has hecho clic $contador veces"
 
-
+            // Mostrar mensaje emergente
+            Toast.makeText(
+                this,
+                "¡Botón presionado!",
+                Toast.LENGTH_SHORT
+            ).show()
             ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
                 val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
                 v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
