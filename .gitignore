@@ -17,3 +17,6 @@ local.properties
 .idea/
 settings.gradle.kts
 gradle/
+.idea/gradle.xml
+.idea/misc.xml
+**.idea/**
