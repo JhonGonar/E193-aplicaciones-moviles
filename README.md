@@ -37,3 +37,23 @@ Kotlin es recomendado por Google debido a su sintaxis clara, seguridad contra er
 ## Capturas de Pantalla
 
 ![Captura del emulador](docs/captura_emulador.png)
+
+
+## Taller 2 - Arquitectura MVVM
+
+### Respuestas a Preguntas Conceptuales
+
+#### 1. ¿Qué problema resuelve el ViewModel en Android?
+El ViewModel se encarga de manejar y guardar los datos que usa la interfaz de la aplicación. Esto evita que los datos se pierdan cuando ocurre un cambio de configuración, como cuando se rota la pantalla del celular. Además, permite separar la lógica de la aplicación de la interfaz, haciendo el código más organizado.
+
+#### 2. ¿Por qué LiveData es "lifecycle-aware" y qué beneficio trae?
+LiveData es lifecycle-aware porque tiene en cuenta el ciclo de vida de las Activities y Fragments. Esto significa que solo envía actualizaciones cuando la interfaz está activa. El beneficio es que evita errores, consumo innecesario de recursos y posibles fugas de memoria.
+
+#### 3. Explica con tus propias palabras el flujo de datos en MVVM
+En MVVM, la vista (Activity o Fragment) observa los datos que están en el ViewModel. El ViewModel obtiene esos datos a través del Repository, que puede conectarse a una base de datos o a una API. Cuando los datos cambian, LiveData avisa a la vista y la interfaz se actualiza automáticamente.
+
+#### 4. ¿Qué ventaja tiene usar Fragments vs múltiples Activities?
+Usar Fragments permite manejar varias pantallas dentro de una misma Activity. Esto hace que la aplicación sea más modular, facilita reutilizar partes de la interfaz y mejora la organización del código.
+
+#### 5. ¿Cómo ayuda el Repository Pattern a la arquitectura?
+El Repository Pattern sirve como una capa que organiza el acceso a los datos. El ViewModel obtiene la información del Repository, y este se encarga de decidir si los datos vienen de una base de datos local o de internet. Esto hace que el código sea más fácil de mantener y modificar.
