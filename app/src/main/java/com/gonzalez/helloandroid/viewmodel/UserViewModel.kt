@@ -6,8 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.gonzalez.helloandroid.model.User
 import com.gonzalez.helloandroid.repository.UserRepository
 
-
-class UserViewModel {
+class UserViewModel : ViewModel() {
 
     // Instancia del repositorio
     private val repository = UserRepository()
@@ -59,5 +58,4 @@ class UserViewModel {
         repository.deleteUser(userId)
         loadUsers() // Recargar lista
     }
-
 }
