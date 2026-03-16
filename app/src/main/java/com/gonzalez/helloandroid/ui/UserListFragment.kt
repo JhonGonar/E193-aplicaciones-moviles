@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.gonzalez.helloandroid.R
 import com.gonzalez.helloandroid.databinding.FragmentUserListBinding
 import com.gonzalez.helloandroid.viewmodel.UserViewModel
+import androidx.navigation.fragment.findNavController
 
 class UserListFragment : Fragment() {
 
@@ -56,8 +57,11 @@ class UserListFragment : Fragment() {
 
     private fun setupClickListeners() {
         binding.buttonAddUser.setOnClickListener {
-            // Por ahora solo mostrar Toast
-            Toast.makeText(context, "Agregar usuario próximamente", Toast.LENGTH_SHORT).show()
+            // Navegar al primer usuario como ejemplo
+            viewModel.users.value?.firstOrNull()?.let { user ->
+                viewModel.selectUser(user)
+                findNavController().navigate(R.id.action_list_to_detail)
+            }
         }
     }
 
