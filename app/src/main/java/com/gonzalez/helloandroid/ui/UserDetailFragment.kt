@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.gonzalez.helloandroid.databinding.FragmentUserDetailBinding
 import com.gonzalez.helloandroid.viewmodel.UserViewModel
+import androidx.navigation.fragment.navArgs
 
 class UserDetailFragment : Fragment() {
 
@@ -16,6 +17,9 @@ class UserDetailFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: UserViewModel by activityViewModels()
+
+    // Recibir argumentos con Safe Args
+    private val args: UserDetailFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,8 +33,17 @@ class UserDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Cargar usuario específico usando el ID recibido
+        loadUserById(args.userId)
+
         setupObservers()
         setupClickListeners()
+    }
+
+    private fun loadUserById(userId: Int) {
+        viewModel.users.value?.find { it.id == userId }?.let { user ->
+            viewModel.selectUser(user)
+        }
     }
 
     private fun setupObservers() {

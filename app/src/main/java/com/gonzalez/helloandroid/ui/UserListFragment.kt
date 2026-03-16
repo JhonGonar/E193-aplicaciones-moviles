@@ -57,10 +57,14 @@ class UserListFragment : Fragment() {
 
     private fun setupClickListeners() {
         binding.buttonAddUser.setOnClickListener {
-            // Navegar al primer usuario como ejemplo
+            // Seleccionar el primer usuario y navegar con Safe Args
             viewModel.users.value?.firstOrNull()?.let { user ->
                 viewModel.selectUser(user)
-                findNavController().navigate(R.id.action_list_to_detail)
+
+                // Usar Safe Args generado automáticamente
+                val action = UserListFragmentDirections
+                    .actionListToDetail(userId = user.id)
+                findNavController().navigate(action)
             }
         }
     }
