@@ -56,4 +56,4 @@ En MVVM, la vista (Activity o Fragment) observa los datos que están en el ViewM
 Usar Fragments permite manejar varias pantallas dentro de una misma Activity. Esto hace que la aplicación sea más modular, facilita reutilizar partes de la interfaz y mejora la organización del código.
 
 #### 5. ¿Cómo ayuda el Repository Pattern a la arquitectura?
-El Repository Pattern sirve como una capa que organiza el acceso a los datos. El ViewModel obtiene la información del Repository, y este se encarga de decidir si los datos vienen de una base de datos local o de internet. Esto hace que el código sea más fácil de mantener y modificar.
+El Repository Pattern sirve como una capa que organiza el acceso a los datos. El ViewModel obtiene la información del Repository, y este se encarga de decidir si los datos vienen de una base de datos local o de internet. Esto hace que el código sea más fácil de mantener y modificar. 
