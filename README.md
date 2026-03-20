@@ -69,3 +69,7 @@ El Repository Pattern sirve como una capa que organiza el acceso a los datos. El
   <img src="docs/ListaUsuarios.jpeg" width="200"/>
   <img src="docs/detalle usuario.jpeg" width="200"/>
 </p>
+
+## Video demostración
+
+[https://youtu.be/TU_LINK_DEL_VIDEO](https://youtu.be/FYI064qxVuQ?si=u2D6cBbo-9Kb2xWg)
