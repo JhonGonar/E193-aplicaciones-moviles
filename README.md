@@ -59,5 +59,8 @@ Usar Fragments permite manejar varias pantallas dentro de una misma Activity. Es
 El Repository Pattern sirve como una capa que organiza el acceso a los datos. El ViewModel obtiene la información del Repository, y este se encarga de decidir si los datos vienen de una base de datos local o de internet. Esto hace que el código sea más fácil de mantener y modificar. 
 
 ## Diagrama de flujo
-![Diagrama de flujo](<img width="487" height="748" alt="DiagramaFlujo" src="https://github.com/user-attachments/assets/eb33a6e3-a83c-4cee-aa19-f7756245eb86" />)
+<p align="center">
+  <img src="<img width="487" height="748" alt="DiagramaFlujo" src="https://github.com/user-attachments/assets/1231e174-68a9-452d-8850-96708d4ec205" />
+" width="600"/>
+</p>
 
