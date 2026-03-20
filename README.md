@@ -60,7 +60,6 @@ El Repository Pattern sirve como una capa que organiza el acceso a los datos. El
 
 ## Diagrama de flujo
 <p align="center">
-  <img src="<img width="487" height="748" alt="DiagramaFlujo" src="https://github.com/user-attachments/assets/1231e174-68a9-452d-8850-96708d4ec205" />
+  <img src="!["C:\Users\STIVEN PEREZ\OneDrive\Imágenes\Capturas de pantalla\DiagramaFlujo.png"]()
 " width="600"/>
 </p>
-
