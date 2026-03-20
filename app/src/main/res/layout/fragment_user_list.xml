@@ -38,10 +38,10 @@
         app:layout_constraintTop_toBottomOf="@id/textViewUserCount"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp" />
+        android:layout_marginTop="16dp" />
 
-    <ScrollView
-        android:id="@+id/scrollView"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
@@ -49,16 +49,8 @@
         app:layout_constraintBottom_toTopOf="@id/buttonAddUser"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="16dp">
-
-        <TextView
-            android:id="@+id/textViewUserList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:lineSpacingMultiplier="1.5"
-            tools:text="Lista de usuarios aquí..." />
-    </ScrollView>
+        android:layout_marginBottom="16dp"
+        tools:listitem="@layout/item_user" />
 
     <Button
         android:id="@+id/buttonAddUser"

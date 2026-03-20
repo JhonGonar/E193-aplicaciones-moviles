@@ -4,23 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.gonzalez.helloandroid.R
 import com.gonzalez.helloandroid.databinding.FragmentUserListBinding
 import com.gonzalez.helloandroid.viewmodel.UserViewModel
-import androidx.navigation.fragment.findNavController
 
 class UserListFragment : Fragment() {
 
-    // ViewBinding para referenciar vistas
     private var _binding: FragmentUserListBinding? = null
     private val binding get() = _binding!!
 
-    // ViewModel compartido a nivel de Activity
     private val viewModel: UserViewModel by activityViewModels()
+
+    private lateinit var adapter: UserAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,22 +32,32 @@ class UserListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupRecyclerView()
         setupObservers()
         setupClickListeners()
     }
 
-    private fun setupObservers() {
-        // Observar cambios en la lista de usuarios
-        viewModel.users.observe(viewLifecycleOwner) { userList ->
-            // Por ahora solo mostrar el contador
-            binding.textViewUserCount.text = "Total usuarios: ${userList.size}"
-
-            // Mostrar lista en un TextView temporal
-            val userNames = userList.joinToString("\n") { "${it.name} - ${it.email}" }
-            binding.textViewUserList.text = userNames
+    private fun setupRecyclerView() {
+        adapter = UserAdapter { user ->
+            // Click en un usuario
+            viewModel.selectUser(user)
+            val action = UserListFragmentDirections
+                .actionListToDetail(userId = user.id)
+            findNavController().navigate(action)
         }
 
-        // Observar estado de carga
+        binding.recyclerView.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = this@UserListFragment.adapter
+        }
+    }
+
+    private fun setupObservers() {
+        viewModel.users.observe(viewLifecycleOwner) { userList ->
+            binding.textViewUserCount.text = "Total usuarios: ${userList.size}"
+            adapter.submitList(userList)
+        }
+
         viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
             binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
         }
@@ -57,20 +65,17 @@ class UserListFragment : Fragment() {
 
     private fun setupClickListeners() {
         binding.buttonAddUser.setOnClickListener {
-            // Seleccionar el primer usuario y navegar con Safe Args
-            viewModel.users.value?.firstOrNull()?.let { user ->
-                viewModel.selectUser(user)
-
-                // Usar Safe Args generado automáticamente
-                val action = UserListFragmentDirections
-                    .actionListToDetail(userId = user.id)
-                findNavController().navigate(action)
-            }
+            // Por ahora agregar usuario con datos fijos
+            viewModel.addUser(
+                name = "Usuario Nuevo ${System.currentTimeMillis() % 100}",
+                email = "nuevo${System.currentTimeMillis() % 100}@example.com",
+                age = (20..40).random()
+            )
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null // Evitar memory leaks
+        _binding = null
     }
 }
