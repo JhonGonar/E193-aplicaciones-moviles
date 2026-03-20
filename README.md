@@ -58,5 +58,8 @@ Usar Fragments permite manejar varias pantallas dentro de una misma Activity. Es
 #### 5. ¿Cómo ayuda el Repository Pattern a la arquitectura?
 El Repository Pattern sirve como una capa que organiza el acceso a los datos. El ViewModel obtiene la información del Repository, y este se encarga de decidir si los datos vienen de una base de datos local o de internet. Esto hace que el código sea más fácil de mantener y modificar. 
 
-## Diagrama de flujo
-![Diagrama](docs/DiagramaFlujo.png)
+<h2 align="center">Diagrama de Flujo</h2>
+
+<p align="center">
+  <img src="docs/DiagramaFlujo.png" width="600"/>
+</p>
