@@ -5,17 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.gonzalez.helloandroid.databinding.FragmentTaskListBinding
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.gonzalez.helloandroid.R
+import com.gonzalez.helloandroid.data.task.TaskRepository
+import com.gonzalez.helloandroid.databinding.FragmentTaskListBinding
 
 class TaskListFragment : Fragment() {
 
     private var _binding: FragmentTaskListBinding? = null
     private val binding get() = _binding!!
 
-    private val taskList = mutableListOf<String>()
+    private lateinit var repository: TaskRepository
     private lateinit var adapter: TaskAdapter
 
     override fun onCreateView(
@@ -30,15 +31,19 @@ class TaskListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = TaskAdapter(taskList)
+        repository = TaskRepository(requireContext())
+        adapter = TaskAdapter(repository.getAllTasks().toMutableList())
         binding.rvTasks.layoutManager = LinearLayoutManager(requireContext())
         binding.rvTasks.adapter = adapter
 
         binding.fabAddTask.setOnClickListener {
-            findNavController().navigate(
-                R.id.action_taskListFragment_to_taskDetailFragment
-            )
+            findNavController().navigate(R.id.action_taskListFragment_to_taskDetailFragment)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        adapter.updateTasks(repository.getAllTasks().toMutableList())
     }
 
     override fun onDestroyView() {
