@@ -4,10 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gonzalez.helloandroid.databinding.FragmentTaskListBinding
+import androidx.navigation.fragment.findNavController
+import com.gonzalez.helloandroid.R
 
 class TaskListFragment : Fragment() {
 
@@ -34,7 +35,9 @@ class TaskListFragment : Fragment() {
         binding.rvTasks.adapter = adapter
 
         binding.fabAddTask.setOnClickListener {
-            Toast.makeText(requireContext(), "Navegar a nueva tarea", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(
+                R.id.action_taskListFragment_to_taskDetailFragment
+            )
         }
     }
 

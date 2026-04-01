@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/userListFragment">
+    app:startDestination="@id/taskListFragment">
 
     <fragment
         android:id="@+id/userListFragment"
@@ -26,5 +26,22 @@
             android:name="userId"
             app:argType="integer" />
     </fragment>
+
+    <fragment
+        android:id="@+id/taskListFragment"
+        android:name="com.gonzalez.helloandroid.ui.task.TaskListFragment"
+        android:label="Lista de Tareas"
+        tools:layout="@layout/fragment_task_list">
+
+        <action
+            android:id="@+id/action_taskListFragment_to_taskDetailFragment"
+            app:destination="@id/taskDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/taskDetailFragment"
+        android:name="com.gonzalez.helloandroid.ui.task.TaskDetailFragment"
+        android:label="Detalle de Tarea"
+        tools:layout="@layout/fragment_task_detail" />
 
 </navigation>

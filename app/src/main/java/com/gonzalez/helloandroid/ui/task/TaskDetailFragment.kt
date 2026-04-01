@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.gonzalez.helloandroid.databinding.FragmentTaskDetailBinding
 
 class TaskDetailFragment : Fragment() {
@@ -27,9 +27,6 @@ class TaskDetailFragment : Fragment() {
 
         binding.btnSaveTask.setOnClickListener {
             val title = binding.etTaskTitle.text.toString().trim()
-            val description = binding.etTaskDescription.text.toString().trim()
-            val time = binding.etTaskTime.text.toString().trim()
-            val hasReminder = binding.switchReminder.isChecked
 
             if (title.isEmpty()) {
                 binding.tilTaskTitle.error = "El título es obligatorio"
@@ -37,7 +34,7 @@ class TaskDetailFragment : Fragment() {
             }
 
             binding.tilTaskTitle.error = null
-            Toast.makeText(requireContext(), "Tarea guardada: $title", Toast.LENGTH_SHORT).show()
+            findNavController().navigateUp()
         }
     }
 
