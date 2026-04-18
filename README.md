@@ -91,6 +91,6 @@ En este taller se desarrolló una aplicación básica de lista de tareas (To-Do 
 - Editar tareas existentes al seleccionarlas.
 - Regresar a la lista actualizada después de guardar.
 
-#### Se implementó persistencia local utilizando SharedPreferences, donde las tareas se almacenan en formato JSON, permitiendo conservar la información incluso después de cerrar y volver a abrir la aplicación.
+Se implementó persistencia local utilizando SharedPreferences, donde las tareas se almacenan en formato JSON, permitiendo conservar la información incluso después de cerrar y volver a abrir la aplicación.
 
-#### Además, se integró un BroadcastReceiver para el manejo de recordatorios, el cual se activa mediante un AlarmManager cuando el usuario habilita la opción de recordatorio en una tarea.
+Además, se integró un BroadcastReceiver para el manejo de recordatorios, el cual se activa mediante un AlarmManager cuando el usuario habilita la opción de recordatorio en una tarea.
