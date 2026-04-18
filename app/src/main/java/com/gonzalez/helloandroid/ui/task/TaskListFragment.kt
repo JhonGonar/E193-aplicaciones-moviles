@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gonzalez.helloandroid.R
+import com.gonzalez.helloandroid.data.task.Task
 import com.gonzalez.helloandroid.data.task.TaskRepository
 import com.gonzalez.helloandroid.databinding.FragmentTaskListBinding
 
@@ -35,6 +36,15 @@ class TaskListFragment : Fragment() {
         adapter = TaskAdapter(repository.getAllTasks().toMutableList())
         binding.rvTasks.layoutManager = LinearLayoutManager(requireContext())
         binding.rvTasks.adapter = adapter
+
+        adapter.setOnTaskClickListener(object : TaskAdapter.OnTaskClickListener {
+            override fun onTaskClick(task: Task) {
+                val bundle = Bundle().apply {
+                    putInt("task_id", task.id)
+                }
+                findNavController().navigate(R.id.action_taskListFragment_to_taskDetailFragment, bundle)
+            }
+        })
 
         binding.fabAddTask.setOnClickListener {
             findNavController().navigate(R.id.action_taskListFragment_to_taskDetailFragment)

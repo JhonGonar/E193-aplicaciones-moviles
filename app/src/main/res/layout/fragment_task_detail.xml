@@ -82,22 +82,16 @@
                     android:maxLines="4" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilTaskTime"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSelectTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Hora del recordatorio (ej: 14:30)"
                 android:layout_marginTop="12dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                app:boxStrokeColor="#2E7D32">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etTaskTime"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="time"
-                    android:maxLines="1" />
-            </com.google.android.material.textfield.TextInputLayout>
+                android:text="Seleccionar hora"
+                android:textSize="15sp"
+                app:backgroundTint="#2E7D32"
+                android:textColor="#FFFFFF"
+                style="@style/Widget.MaterialComponents.Button.TextButton" />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/switchReminder"
@@ -107,19 +101,40 @@
                 android:text="Activar recordatorio"
                 android:textSize="15sp"
                 android:textColor="#2E7D32"
-                app:thumbTint="#2E7D32"
-                app:trackTint="#A5D6A7" />
+                app:thumbTint="@color/switch_thumb_color"
+                app:trackTint="@color/switch_thumb_color" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnSaveTask"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Guardar"
-                android:textSize="16sp"
-                android:padding="12dp"
-                app:backgroundTint="#2E7D32"
-                android:textColor="#FFFFFF" />
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCancel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:text="Cancelar"
+                    android:textSize="16sp"
+                    android:padding="12dp"
+                    app:backgroundTint="#BDBDBD"
+                    android:textColor="#000000" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSaveTask"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Guardar"
+                    android:textSize="16sp"
+                    android:padding="12dp"
+                    app:backgroundTint="#2E7D32"
+                    android:textColor="#FFFFFF" />
+
+            </LinearLayout>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

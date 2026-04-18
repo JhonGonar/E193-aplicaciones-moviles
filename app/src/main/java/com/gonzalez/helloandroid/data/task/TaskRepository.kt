@@ -49,7 +49,8 @@ class TaskRepository(context: Context) {
                         id = obj.getInt("id"),
                         title = obj.getString("title"),
                         description = obj.getString("description"),
-                        hasReminder = obj.getBoolean("hasReminder")
+                        hasReminder = obj.getBoolean("hasReminder"),
+                        reminderTime = obj.optString("reminderTime", null).takeIf { it.isNotEmpty() }
                     )
                 )
             }
@@ -68,6 +69,7 @@ class TaskRepository(context: Context) {
             obj.put("title", task.title)
             obj.put("description", task.description)
             obj.put("hasReminder", task.hasReminder)
+            obj.put("reminderTime", task.reminderTime ?: "")
             jsonArray.put(obj)
         }
         prefs.edit().putString(KEY_TASK_LIST, jsonArray.toString()).apply()

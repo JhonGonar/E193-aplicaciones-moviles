@@ -11,6 +11,16 @@ import com.gonzalez.helloandroid.data.task.Task
 class TaskAdapter(private val tasks: MutableList<Task>) :
     RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
+    interface OnTaskClickListener {
+        fun onTaskClick(task: Task)
+    }
+
+    private var listener: OnTaskClickListener? = null
+
+    fun setOnTaskClickListener(listener: OnTaskClickListener) {
+        this.listener = listener
+    }
+
     class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvTaskTitle: TextView = itemView.findViewById(R.id.tvTaskItemTitle)
     }
@@ -22,7 +32,11 @@ class TaskAdapter(private val tasks: MutableList<Task>) :
     }
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
-        holder.tvTaskTitle.text = tasks[position].title
+        val task = tasks[position]
+        holder.tvTaskTitle.text = task.title
+        holder.itemView.setOnClickListener {
+            listener?.onTaskClick(task)
+        }
     }
 
     override fun getItemCount(): Int = tasks.size
